@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About specific Todo</title>
+</head>
+<body>
+<dl>
+    <dt>
+        <strong>{{.Todo.Title}}</strong>
+    </dt>
+    <dd>
+        {{.Todo.Date.Format "2006-01-02"}}
+    </dd>
+    <dt>
+        <strong>
+            {{.Todo.Description}}
+        </strong>
+    </dt>
+    <dt>
+        <strong>
+            {{.Todo.Done}}
+        </strong>
+    </dt>
+    <dt>
+        <form action="/todos/{{.Todo.ID.Hex}}/todo/update" method="POST">
+            {{if .Todo.Done}}
+            <button type="submit">I haven't finished this task yet!</button>
+            {{else}}
+            <button type="submit">I have done this task!</button>
+            {{end}}
+        </form>
+    </dt>
+    <dt>
+        <a href="/todos">
+            <button type="button">Go to home page</button>
+        </a>
+    </dt>
+
+</dl>
+
+<dl>
+    <a href="/todos/{{.Todo.ID.Hex}}/todo/AddComment">
+        <button>Add New Comment</button>
+    </a>
+</dl>
+
+<dl>
+    {{range .Todo.Comments}}
+    <dt>
+        {{.Description}}
+    </dt>
+    <dt>
+        {{.Date}}
+    </dt>
+    {{end}}
+</dl>
+</body>
+</html>

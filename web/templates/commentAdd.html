@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Comment</title>
+</head>
+<body>
+<h1>Add Comment</h1>
+<form action="/todos/{{.Hex}}/todo/AddComment/Create" method="POST">
+    <!-- <label for="commentTitle">Title:</label>
+    <input type="text" name="title" id="commentTitle" required> -->
+    <br>
+    <label for="commentDescription">Description:</label>
+    <textarea name="description" id="commentDescription" rows="4" cols="50" required></textarea>
+    <br>
+    <dd>
+        <button type="submit">Submit Comment</button>
+    </dd>
+</form>
+</body>
+</html>

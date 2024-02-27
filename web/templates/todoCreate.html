@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Create</title>
+</head>
+<body>
+<h1>New Todo</h1>
+<form action="/todos/" method="POST">
+    <table>
+        <tr>
+            <td>Title</td>
+            <td><input type="text" name="title"/></td>
+        </tr>
+
+        <tr>
+            <td>Description</td>
+            <td><input type="text" name="description"/></td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td><input type="date" name="date"/></td>
+        </tr>
+    </table>
+    <button type="submit">Create Todo</button>
+</form>
+</body>
+</html>

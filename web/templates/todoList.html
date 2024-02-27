@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Todos List</h1>
+<button><a href="/todos/new">Create new todo</a></button>
+<dl>
+    {{range .Todos}}
+    <dt><strong>{{.Title}}</strong></dt>
+    <dd>{{.Date.Format "2006-01-02"}}</dd>
+    <dd>
+        <form action="/todos/{{.ID.Hex}}/todo" method="GET">
+            <button type="submit">Open</button>
+        </form>
+    </dd>
+<!--    <dd>-->
+<!--        <form action="/todos/{{.ID.Hex}}/update" method="GET">-->
+<!--            <button type="submit">UPDATE</button>-->
+<!--        </form>-->
+<!--    </dd>-->
+    <dd>
+        <form action="/todos/{{.ID.Hex}}/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </dd>
+    {{end}}
+
+</dl>
+</body>
+</html>
